@@ -1,0 +1,32 @@
+
+ <ul>
+  <li *ngFor="let item of items | async">
+    {{item}}
+  </li>
+</ul> 
+
+
+<ul>
+  <li *ngFor="let node1 of node1List;"  >
+    Volt : {{ node1.V }}, Amp : {{ node1.A }}, Stasus : {{ node1.S }}
+  </li>
+</ul>
+
+<!-- <div *ngFor="let item of items">
+  <div [ngStyle]="{'background-color': item.color}">
+      {{item.text}}
+  </div>
+</div> -->
+
+
+<div *ngFor="let node1 of node1List;">
+    <div *ngIf="node1.S == 'OK' " [ngStyle]="{'background-color': 'green'}">
+      Volt : {{ node1.V }}, Amp : {{ node1.A }}, Stasus : {{ node1.S }}
+    </div>
+
+    <div *ngIf="node1.S == 'BAD' " [ngStyle]="{'background-color': 'red'}">
+      Volt : {{ node1.V }}, Amp : {{ node1.A }}, Stasus : {{ node1.S }}
+    </div>
+
+</div>
+

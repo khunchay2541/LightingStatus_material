@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+    <button mat-button (click)="onClickNavtoggle()"><mat-icon>menu</mat-icon></button>
+
+    <span class="flex-fill" >Lighting Status</span>
+    <span ></span> 
+    <!-- flex-fill ช่วยให้ แท็กซ้ายชิเซ้ายสุด ขวาชิดขวาสุด -->
+    <div class="d-flex align-items-center" >
+        <button mat-icon-button><mat-icon>search</mat-icon></button>
+        <div class="vl"></div>
+        <button mat-icon-button><mat-icon>mail_outline</mat-icon></button>
+        <div class="vl"></div>
+        <button mat-icon-button><mat-icon>notifications_none</mat-icon></button>
+    </div>
+
+    <button mat-button [matMenuTriggerFor]="menu">
+        <img class="avatar rounded-circle bg-white" src="https://miro.medium.com/max/250/1*Y547A1WkJDBXb4OYF_JSjg.png" alt="">
+        <span class="ml-2">Admin khunchay</span>
+    </button>
+
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <span>Redial</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voice mail</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+        </button>
+    </mat-menu>
+
+
+    
+</mat-toolbar>
