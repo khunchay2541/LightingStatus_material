@@ -1,22 +1,53 @@
-
- <ul>
-  <li *ngFor="let item of items | async">
-    {{item}}
-  </li>
-</ul> 
+<div class="d-flex flex-column align-items-end">
 
 
-<ul>
-  <li *ngFor="let node1 of node1List;"  >
-    Volt : {{ node1.V }}, Amp : {{ node1.A }}, Stasus : {{ node1.S }}
-  </li>
-</ul>
-
-<!-- <div *ngFor="let item of items">
-  <div [ngStyle]="{'background-color': item.color}">
-      {{item.text}}
+  <div class="col-md-5">
+      <mat-card class="d-flex align-items-center">
+        <img class="icon mr-3" src="https://www.flaticon.com/svg/vstatic/svg/3176/3176369.svg?token=exp=1618937477~hmac=f82624de2a8090cb348943e1eec4f5fe" alt="">
+        <div class="d-flex flex-column">
+          <div class="h6 mb-0">Good</div>
+          <div class="h6 mb-0">0</div>
+        </div>
+      </mat-card>
   </div>
-</div> -->
+
+  
+    <div class="col-md-5  mt-4">
+      <mat-card class="d-flex align-items-center">
+        <img class="icon mr-3" src="https://www.flaticon.com/svg/vstatic/svg/3176/3176276.svg?token=exp=1618937509~hmac=8e1b0fab0f62fb3acfc377252b08231d" alt="">
+        <div class="d-flex flex-column">
+          <div class="h6 mb-0">Bad</div>
+          <div class="h6 mb-0">0</div>
+        </div>
+      </mat-card>
+    </div>
+
+
+    <div class="col-md-5  mt-4">
+      <mat-card class="d-flex align-items-center">
+        <img class="icon mr-3" src="https://www.flaticon.com/svg/vstatic/svg/2372/2372041.svg?token=exp=1618935774~hmac=8886a54a7ca3f687b53525c6bc2ab76b" alt="">
+        <div class="d-flex flex-column">
+          <div class="h6 mb-0">Broken</div>
+          <div class="h6 mb-0">0</div>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="col-md-5 mt-4">
+      <mat-card class="d-flex align-items-center">
+        <img class="icon mr-3" src="https://image.flaticon.com/icons/svg/869/869045.svg" alt="">
+        <div class="d-flex flex-column">
+          <div class="h6 mb-0">Node down</div>
+          <div class="h6 mb-0">0</div>
+        </div>
+      </mat-card>
+    </div>
+
+
+</div>
+
+<br>
+<br>
 
 
 <div *ngFor="let node1 of node1List;">
@@ -24,7 +55,11 @@
       Volt : {{ node1.V }}, Amp : {{ node1.A }}, Stasus : {{ node1.S }}
     </div>
 
-    <div *ngIf="node1.S == 'BAD' " [ngStyle]="{'background-color': 'red'}">
+    <div *ngIf="node1.S == 'BAD' " [ngStyle]="{'background-color': 'yellow'}">
+      Volt : {{ node1.V }}, Amp : {{ node1.A }}, Stasus : {{ node1.S }}
+    </div>
+
+    <div *ngIf="node1.S == 'DOWN' " [ngStyle]="{'background-color': 'red'}">
       Volt : {{ node1.V }}, Amp : {{ node1.A }}, Stasus : {{ node1.S }}
     </div>
 
