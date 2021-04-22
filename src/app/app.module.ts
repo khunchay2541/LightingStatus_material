@@ -21,13 +21,15 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { HomeComponent } from './page/home/home.component';
 import {MatCardModule} from '@angular/material/card';
+import { DashbordComponent } from './page/dashbord/dashbord.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SideNavComponent,
-    HomeComponent
+    HomeComponent,
+    DashbordComponent
   ],
   imports: [
     BrowserModule,

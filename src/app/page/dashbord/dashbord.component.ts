@@ -1,20 +1,16 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import 'firebase/database'
 import {Observable} from 'rxjs'
 
-
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-dashbord',
+  templateUrl: './dashbord.component.html',
+  styleUrls: ['./dashbord.component.css']
 })
-export class HomeComponent implements OnInit {
+export class DashbordComponent implements OnInit {
 
-  public status_good : number 
-  public status_bad : number 
-  public status_down : number 
-
+ 
 
   items  : Observable <any>
 
@@ -25,7 +21,7 @@ export class HomeComponent implements OnInit {
   public V : string;
 
   constructor(private  db: AngularFireDatabase) { 
-    this.getDataFromRealtime();
+    this.getDataFromRealtime()
   }
 
   ngOnInit(): void {
@@ -53,38 +49,13 @@ export class HomeComponent implements OnInit {
   getDataFromRealtime(){
     this.db.list('node1').snapshotChanges().forEach(datasSnapshot=>{
       this.node1List = [];
-       datasSnapshot.forEach(dataSnapshot=>{
+      datasSnapshot.forEach(dataSnapshot=>{
         let data = dataSnapshot.payload.toJSON();
+
         this.node1List.push(data as Node1)
       })
-      
-      const result_ok = this.node1List.filter( data =>{
-        return data.S == "OK"
-      })
-
-      const result_bad = this.node1List.filter( data =>{
-        return data.S == "BAD"
-      })
-
-      const result_down = this.node1List.filter( data =>{
-        return data.S == "DOWN"
-      })
-
-
-      
-      this.status_good = result_ok.length;
-      this.status_bad = result_bad.length;
-      this.status_down = result_down.length; 
-      
-      
     })
   }
-
-  checkGoodStatus(){
- 
-  }
-
-  
 
 }
 

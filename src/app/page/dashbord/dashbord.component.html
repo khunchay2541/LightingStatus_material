@@ -1,0 +1,75 @@
+<div class="row">
+
+    <div *ngFor="let node1 of node1List;" >
+
+        <div class="col-md-11 mt-4" *ngIf="node1.S == 'OK' " >
+            <mat-card class="d-flex align-items-center">
+              <img class="icon mr-3" src="https://image.flaticon.com/icons/svg/3176/3176369.svg" alt="">
+              <div class="d-flex flex-column">
+                <div class="h6 mb-0">
+
+                    <span [ngStyle]="{'background-color': 'green'}">
+                       Status : {{ node1.S }}
+                    </span>
+                </div>
+                <!-- <div class="h6 mb-0">0</div> -->
+              </div>
+            </mat-card>
+        </div>
+
+        <div class="col-md-11 mt-4" *ngIf="node1.S == 'BAD' " >
+            <mat-card class="d-flex align-items-center">
+              <img class="icon mr-3" src="https://image.flaticon.com/icons/svg/3176/3176369.svg" alt="">
+              <div class="d-flex flex-column">
+                <div class="h6 mb-0">
+
+                    <span [ngStyle]="{'background-color': 'yellow'}">
+                        Status : {{ node1.S }}
+                    </span>
+                </div>
+                <!-- <div class="h6 mb-0">0</div> -->
+              </div>
+            </mat-card>
+        </div>
+
+        <div class="col-md-11 mt-4"*ngIf="node1.S == 'DOWN' ">
+            <mat-card class="d-flex align-items-center">
+              <img class="icon mr-3" src="https://image.flaticon.com/icons/svg/3176/3176369.svg" alt="">
+              <div class="d-flex flex-column">
+                <div class="h6 mb-0">
+
+                    <span [ngStyle]="{'background-color': 'red'}">
+                        Status : {{ node1.S }}
+                    </span>
+                </div>
+                <!-- <div class="h6 mb-0">0</div> -->
+              </div>
+            </mat-card>
+        </div>
+    
+    
+        
+
+    </div>
+
+
+
+</div>
+
+<br>
+<br>
+
+<div *ngFor="let node1 of node1List;">
+    <div *ngIf="node1.S == 'OK' " [ngStyle]="{'background-color': 'green'}">
+      Volt : {{ node1.V }}, Amp : {{ node1.A }}, Stasus : {{ node1.S }}
+    </div>
+
+    <div *ngIf="node1.S == 'BAD' " [ngStyle]="{'background-color': 'yellow'}">
+      Volt : {{ node1.V }}, Amp : {{ node1.A }}, Stasus : {{ node1.S }}
+    </div>
+
+    <div *ngIf="node1.S == 'DOWN' " [ngStyle]="{'background-color': 'red'}">
+      Volt : {{ node1.V }}, Amp : {{ node1.A }}, Stasus : {{ node1.S }}
+    </div>
+
+</div>
