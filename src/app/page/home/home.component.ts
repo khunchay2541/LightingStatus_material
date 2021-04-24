@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 
   public node1List: Node1[];
 
+  public id : number;
   public A : string;
   public S: string;
   public V : string;
@@ -57,7 +58,8 @@ export class HomeComponent implements OnInit {
         let data = dataSnapshot.payload.toJSON();
         this.node1List.push(data as Node1)
       })
-      
+      //this.id = this.node1List[this.node1List.length].id + 1
+      console.log(this.node1List)
       const result_ok = this.node1List.filter( data =>{
         return data.S == "OK"
       })
@@ -68,10 +70,7 @@ export class HomeComponent implements OnInit {
 
       const result_down = this.node1List.filter( data =>{
         return data.S == "DOWN"
-      })
-
-
-      
+      })      
       this.status_good = result_ok.length;
       this.status_bad = result_bad.length;
       this.status_down = result_down.length; 
@@ -89,6 +88,7 @@ export class HomeComponent implements OnInit {
 }
 
 class Node1{
+  id : number;
   A : string;
   S: string;
   V : string;

@@ -5,4 +5,7 @@ mat-sidenav {
 
 .content-wrapper {
     padding: 2.5rem;
+    /* background-image: url('./image/3096.jpg'); */
+    background-size:cover;
+    background-color: #515e7b;;
 }

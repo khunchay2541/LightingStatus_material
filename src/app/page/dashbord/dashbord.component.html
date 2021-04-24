@@ -1,64 +1,171 @@
-<div class="row">
-
-    <div *ngFor="let node1 of node1List;" >
-
-        <div class="col-md-11 mt-4" *ngIf="node1.S == 'OK' " >
-            <mat-card class="d-flex align-items-center">
-              <img class="icon mr-3" src="https://image.flaticon.com/icons/svg/3176/3176369.svg" alt="">
-              <div class="d-flex flex-column">
-                <div class="h6 mb-0">
-
-                    <span [ngStyle]="{'background-color': 'green'}">
-                       Status : {{ node1.S }}
-                    </span>
-                </div>
-                <!-- <div class="h6 mb-0">0</div> -->
-              </div>
-            </mat-card>
+<div class="d-flex justify-content-between align-items-center">
+  <div>
+    <mat-card class="example-card mr-4">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Station 1</mat-card-title>
+        <mat-card-subtitle>Bamroongrat Road</mat-card-subtitle>
+      </mat-card-header>
+      <iframe class="w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.9315009560164!2d100.74704651436055!3d13.722596901667847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d670166262e13%3A0x896c489b9ce4f061!2z4LiW4LiZ4LiZIOC4peC4suC4lOC4geC4o-C4sOC4muC4seC4hyDguYHguILguKfguIcg4Lil4Liy4LiU4LiB4Lij4Liw4Lia4Lix4LiHIOC5gOC4guC4leC4peC4suC4lOC4geC4o-C4sOC4muC4seC4hyDguIHguKPguLjguIfguYDguJfguJ7guKHguKvguLLguJnguITguKMgMTA1MjA!5e0!3m2!1sth!2sth!4v1619253474432!5m2!1sth!2sth" width="100" height="100" style="border: 2px;" allowfullscreen="" loading="lazy"></iframe>
+      <!-- <img
+        mat-card-image
+        src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+        alt="Photo of a Shiba Inu"
+      /> -->
+      <mat-card-content>
+        <div class="d=flex flex-column">
+          <div class="d-flex align-items-center ">
+            <svg height="50" width="50">
+              <circle
+                cx="25"
+                cy="25"
+                r="23"
+                stroke="black"
+                stroke-width="4"
+                fill="green"
+              />
+            </svg>
+            <div class="ml-4">Status : Good</div>
+          </div>
+          <div class="mt-2 d-flex align-items-center">
+            <svg height="50" width="50">
+              <circle
+                cx="25"
+                cy="25"
+                r="23"
+                stroke="black"
+                stroke-width="4"
+                fill="gray"
+              />
+            </svg>
+            <div class="ml-4">Status : Down</div>
+          </div>
+          <div class="mt-2 d-flex align-items-center">
+            <svg height="50" width="50">
+              <circle
+                cx="25"
+                cy="25"
+                r="23"
+                stroke="black"
+                stroke-width="4"
+                fill="orange"
+              />
+            </svg>
+            <div class="ml-4">Status : Warning</div>
+          </div>
+          <div class="mt-2 d-flex align-items-center">
+            <svg height="50" width="50">
+              <circle
+                cx="25"
+                cy="25"
+                r="23"
+                stroke="black"
+                stroke-width="4"
+                fill="red"
+              />
+            </svg>
+            <div class="ml-4">Status : Bad</div>
+          </div>
         </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 
-        <div class="col-md-11 mt-4" *ngIf="node1.S == 'BAD' " >
-            <mat-card class="d-flex align-items-center">
-              <img class="icon mr-3" src="https://image.flaticon.com/icons/svg/3176/3176369.svg" alt="">
-              <div class="d-flex flex-column">
-                <div class="h6 mb-0">
+  <!-- dashbord -->
+  <div class="row justify-content-end">
+    <div *ngFor="let node1 of node1List">
+      <div class="col-md-11 mt-4" *ngIf="node1.S == 'OK'">
+        <mat-card class="d-flex align-items-center">
+          <img
+            class="icon mr-3"
+            src="https://image.flaticon.com/icons/svg/3176/3176369.svg"
+            alt=""
+          />
+          <div
+            class="wrap-mat-card d-flex align-items-center justify-content-between"
+          >
+            <div class="h6 mb-0">
+              <span> Node : {{ node1.id }} </span>
+            </div>
+            <svg height="50" width="50">
+              <circle
+                cx="25"
+                cy="25"
+                r="23"
+                stroke="black"
+                stroke-width="4"
+                fill="green"
+              />
+            </svg>
+            <!-- <div class="h6 mb-0">0</div> -->
+          </div>
+        </mat-card>
+      </div>
 
-                    <span [ngStyle]="{'background-color': 'yellow'}">
-                        Status : {{ node1.S }}
-                    </span>
-                </div>
-                <!-- <div class="h6 mb-0">0</div> -->
-              </div>
-            </mat-card>
-        </div>
+      <div class="col-md-11 mt-4" *ngIf="node1.S == 'BAD'">
+        <mat-card class="d-flex align-items-center">
+          <img
+            class="icon mr-3"
+            src="https://image.flaticon.com/icons/svg/3176/3176369.svg"
+            alt=""
+          />
+          <div
+            class="wrap-mat-card d-flex align-items-center justify-content-between"
+          >
+            <div class="h6 mb-0">
+              <span> Node : {{ node1.id }} </span>
+            </div>
+            <!-- <div class="h6 mb-0">0</div> -->
+            <svg height="50" width="50">
+              <circle
+                cx="25"
+                cy="25"
+                r="23"
+                stroke="black"
+                stroke-width="4"
+                fill="red"
+              />
+            </svg>
+          </div>
+        </mat-card>
+      </div>
 
-        <div class="col-md-11 mt-4"*ngIf="node1.S == 'DOWN' ">
-            <mat-card class="d-flex align-items-center">
-              <img class="icon mr-3" src="https://image.flaticon.com/icons/svg/3176/3176369.svg" alt="">
-              <div class="d-flex flex-column">
-                <div class="h6 mb-0">
-
-                    <span [ngStyle]="{'background-color': 'red'}">
-                        Status : {{ node1.S }}
-                    </span>
-                </div>
-                <!-- <div class="h6 mb-0">0</div> -->
-              </div>
-            </mat-card>
-        </div>
-    
-    
-        
-
+      <div class="col-md-11 mt-4" *ngIf="node1.S == 'DOWN'">
+        <mat-card class="d-flex align-items-center">
+          <img
+            class="icon mr-3"
+            src="https://image.flaticon.com/icons/svg/3176/3176369.svg"
+            alt=""
+          />
+          <div
+            class="wrap-mat-card d-flex align-items-center justify-content-between"
+          >
+            <div class="h6 mb-0">
+              <span> Node : {{ node1.id }} </span>
+            </div>
+            <!-- <div class="h6 mb-0">0</div> -->
+            <svg height="50" width="50">
+              <circle
+                cx="25"
+                cy="25"
+                r="23"
+                stroke="black"
+                stroke-width="4"
+                fill="gray"
+              />
+            </svg>
+          </div>
+        </mat-card>
+      </div>
     </div>
-
-
-
+  </div>
 </div>
 
-<br>
-<br>
-
+<!-- 
 <div *ngFor="let node1 of node1List;">
     <div *ngIf="node1.S == 'OK' " [ngStyle]="{'background-color': 'green'}">
       Volt : {{ node1.V }}, Amp : {{ node1.A }}, Stasus : {{ node1.S }}
@@ -72,4 +179,4 @@
       Volt : {{ node1.V }}, Amp : {{ node1.A }}, Stasus : {{ node1.S }}
     </div>
 
-</div>
+</div> -->

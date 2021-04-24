@@ -6,22 +6,23 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { DashbordComponent } from './page/dashbord/dashbord.component';
 
 //firebase
-import { AngularFireModule} from '@angular/fire';
-import {environment } from '../environments/environment';
-import {AngularFireDatabaseModule} from '@angular/fire/database'
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
-
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './page/home/home.component';
-import {MatCardModule} from '@angular/material/card';
-import { DashbordComponent } from './page/dashbord/dashbord.component';
+import { MatCardModule } from '@angular/material/card';
+
+import { LottieAnimationViewModule } from 'ng-lottie';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { DashbordComponent } from './page/dashbord/dashbord.component';
     HeaderComponent,
     SideNavComponent,
     HomeComponent,
-    DashbordComponent
+    DashbordComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,16 +39,17 @@ import { DashbordComponent } from './page/dashbord/dashbord.component';
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    
+
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
     MatSidenavModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    LottieAnimationViewModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

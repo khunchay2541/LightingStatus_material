@@ -16,6 +16,7 @@ export class DashbordComponent implements OnInit {
 
   public node1List: Node1[];
 
+  public id : number;
   public A : string;
   public S: string;
   public V : string;
@@ -60,6 +61,7 @@ export class DashbordComponent implements OnInit {
 }
 
 class Node1{
+  id : number;
   A : string;
   S: string;
   V : string;
