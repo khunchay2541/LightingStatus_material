@@ -1,0 +1,11 @@
+.icon {
+    height: 3.5rem;
+    width: 3.5rem;
+}
+mat-card {
+    width: 280px;
+}
+
+.wrap-mat-card{
+    width: 200px;
+}

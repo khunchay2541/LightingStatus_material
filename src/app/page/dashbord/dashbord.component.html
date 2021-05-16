@@ -1,9 +1,10 @@
 <div class="d-flex justify-content-between align-items-center">
+    <!-- card คำแนะนำ -->
   <div>
     <mat-card class="example-card mr-4">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Station 1</mat-card-title>
+        <mat-card-title>สถานีที่ 1</mat-card-title>
         <mat-card-subtitle>Bamroongrat Road</mat-card-subtitle>
       </mat-card-header>
       <iframe class="w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.9315009560164!2d100.74704651436055!3d13.722596901667847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d670166262e13%3A0x896c489b9ce4f061!2z4LiW4LiZ4LiZIOC4peC4suC4lOC4geC4o-C4sOC4muC4seC4hyDguYHguILguKfguIcg4Lil4Liy4LiU4LiB4Lij4Liw4Lia4Lix4LiHIOC5gOC4guC4leC4peC4suC4lOC4geC4o-C4sOC4muC4seC4hyDguIHguKPguLjguIfguYDguJfguJ7guKHguKvguLLguJnguITguKMgMTA1MjA!5e0!3m2!1sth!2sth!4v1619253474432!5m2!1sth!2sth" width="100" height="100" style="border: 2px;" allowfullscreen="" loading="lazy"></iframe>
@@ -25,7 +26,7 @@
                 fill="green"
               />
             </svg>
-            <div class="ml-4">Status : Good</div>
+            <div class="ml-4">สถานะ : ปกติ</div>
           </div>
           <div class="mt-2 d-flex align-items-center">
             <svg height="50" width="50">
@@ -38,7 +39,7 @@
                 fill="gray"
               />
             </svg>
-            <div class="ml-4">Status : Down</div>
+            <div class="ml-4">สถานะ : โหนดไม่ทำงาน</div>
           </div>
           <div class="mt-2 d-flex align-items-center">
             <svg height="50" width="50">
@@ -51,7 +52,8 @@
                 fill="orange"
               />
             </svg>
-            <div class="ml-4">Status : Warning</div>
+            <div class="ml-4">สถานะ : หลอดไฟเสีย</div>
+            
           </div>
           <div class="mt-2 d-flex align-items-center">
             <svg height="50" width="50">
@@ -64,109 +66,187 @@
                 fill="red"
               />
             </svg>
-            <div class="ml-4">Status : Bad</div>
+            <div class="ml-4">สถานะ : V,A ไม่มีค่า<br>(แหล่งจ่ายไฟเสียหาย)</div>
           </div>
         </div>
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
+
     </mat-card>
   </div>
 
-  <!-- dashbord -->
-  <div class="row justify-content-end">
-    <div *ngFor="let node1 of node1List">
-      <div class="col-md-11 mt-4" *ngIf="node1.S == 'OK'">
-        <mat-card class="d-flex align-items-center">
-          <img
-            class="icon mr-3"
-            src="https://image.flaticon.com/icons/svg/3176/3176369.svg"
-            alt=""
-          />
-          <div
-            class="wrap-mat-card d-flex align-items-center justify-content-between"
-          >
-            <div class="h6 mb-0">
-              <span> Node : {{ node1.id }} </span>
-            </div>
-            <svg height="50" width="50">
-              <circle
-                cx="25"
-                cy="25"
-                r="23"
-                stroke="black"
-                stroke-width="4"
-                fill="green"
-              />
-            </svg>
-            <!-- <div class="h6 mb-0">0</div> -->
-          </div>
-        </mat-card>
-      </div>
+  <!--------------------------- dashbord ------------------------------------>
+  
+    <div class="row justify-content-center">
 
-      <div class="col-md-11 mt-4" *ngIf="node1.S == 'BAD'">
-        <mat-card class="d-flex align-items-center">
-          <img
-            class="icon mr-3"
-            src="https://image.flaticon.com/icons/svg/3176/3176369.svg"
-            alt=""
-          />
-          <div
-            class="wrap-mat-card d-flex align-items-center justify-content-between"
-          >
-            <div class="h6 mb-0">
-              <span> Node : {{ node1.id }} </span>
+        <!-- เคส ปกติ ------------------------------------------------------------------ -->
+        <div *ngFor="let node1 of node1List">
+            <div class="col-md-11 mt-4" *ngIf="node1.S == 'OK' && node1.A !='0.00'">
+                <mat-card class="d-flex align-items-center">
+                  <img
+                    class="icon mr-3"
+                    src="https://image.flaticon.com/icons/svg/3176/3176369.svg"
+                    alt=""
+                  />
+                  <div
+                    class="wrap-mat-card d-flex align-items-center justify-content-between"
+                  >
+                  <div class="h6 mb-0 flex flex-column">
+                    <div> เสาที่ : {{ node1.id }} </div>
+                    <div> แรงดัน : {{ node1.V }} V</div>
+                    <div> กระแส : {{ node1.A }} A</div>
             </div>
-            <!-- <div class="h6 mb-0">0</div> -->
-            <svg height="50" width="50">
-              <circle
-                cx="25"
-                cy="25"
-                r="23"
-                stroke="black"
-                stroke-width="4"
-                fill="red"
-              />
-            </svg>
-          </div>
-        </mat-card>
-      </div>
+                    <svg height="50" width="50">
+                      <circle
+                        cx="25"
+                        cy="25"
+                        r="23"
+                        stroke="black"
+                        stroke-width="4"
+                        fill="green"
+                      />
+                    </svg>
+                    <!-- <div class="h6 mb-0">0</div> -->
+                  </div>
+                </mat-card>
+              </div>
 
-      <div class="col-md-11 mt-4" *ngIf="node1.S == 'DOWN'">
-        <mat-card class="d-flex align-items-center">
-          <img
-            class="icon mr-3"
-            src="https://image.flaticon.com/icons/svg/3176/3176369.svg"
-            alt=""
-          />
-          <div
-            class="wrap-mat-card d-flex align-items-center justify-content-between"
-          >
-            <div class="h6 mb-0">
-              <span> Node : {{ node1.id }} </span>
-            </div>
-            <!-- <div class="h6 mb-0">0</div> -->
-            <svg height="50" width="50">
-              <circle
-                cx="25"
-                cy="25"
-                r="23"
-                stroke="black"
-                stroke-width="4"
-                fill="gray"
+            <!-- เคสที่หลอดไฟเสีย ---------------------------------------------------------->
+          <div class="col-md-11 mt-4" *ngIf="node1.S == 'OK' && node1.A =='0.00'">
+            <mat-card class="d-flex align-items-center">
+              <img
+                class="icon mr-3"
+                src="https://image.flaticon.com/icons/svg/3176/3176369.svg"
+                alt=""
               />
-            </svg>
+              <div
+                class="wrap-mat-card d-flex align-items-center justify-content-between"
+              >
+                <div class="h6 mb-0 flex flex-column">
+                        <div> เสาที่ : {{ node1.id }} </div>
+                        <div> แรงดัน : {{ node1.V }} V</div>
+                        <div> กระแส : {{ node1.A }} A</div>
+                </div>
+                <svg height="50" width="50">
+                  <circle
+                    cx="25"
+                    cy="25"
+                    r="23"
+                    stroke="black"
+                    stroke-width="4"
+                    fill="orange"
+                  />
+                </svg>
+                <!-- <div class="h6 mb-0">0</div> -->
+              </div>
+            </mat-card>
           </div>
-        </mat-card>
+
+          <!-- เคสที่ Lora ปกติ วงจรเสีย สายไฟขาด------------------------------------------------------ -->
+          <div class="col-md-11 mt-4" *ngIf="node1.S == 'BAD'">
+            <mat-card class="d-flex align-items-center">
+              <img
+                class="icon mr-3"
+                src="https://image.flaticon.com/icons/svg/3176/3176369.svg"
+                alt=""
+              />
+              <div
+                class="wrap-mat-card d-flex align-items-center justify-content-between"
+              >
+              <div class="h6 mb-0 flex flex-column">
+                <div> เสาที่ : {{ node1.id }} </div>
+                <div> แรงดัน : - V</div>
+                <div> กระแส : - A</div>
+              </div>
+                <!-- <div class="h6 mb-0">0</div> -->
+                <svg height="50" width="50">
+                  <circle
+                    cx="25"
+                    cy="25"
+                    r="23"
+                    stroke="black"
+                    stroke-width="4"
+                    fill="red"
+                  />
+                </svg>
+              </div>
+            </mat-card>
+          </div>
+    
+          <div class="col-md-11 mt-4" *ngIf="node1.S == 'Down'">
+            <mat-card class="d-flex align-items-center">
+              <img
+                class="icon mr-3"
+                src="https://image.flaticon.com/icons/svg/3176/3176369.svg"
+                alt=""
+              />
+              <div
+                class="wrap-mat-card d-flex align-items-center justify-content-between"
+              >
+                <div class="h6 mb-0">
+                    <div class="h6 mb-0 flex flex-column">
+                        <div> เสาที่ : {{ node1.id }} </div>
+                        <div class="h12 mt-1"> (ไม่มีข้อมูลส่งกลับ) </div>
+                        
+                </div>
+                </div>
+                <!-- <div class="h6 mb-0">0</div> -->
+                <svg height="50" width="50">
+                  <circle
+                    cx="25"
+                    cy="25"
+                    r="23"
+                    stroke="black"
+                    stroke-width="4"
+                    fill="gray"
+                  />
+                </svg>
+              </div>
+            </mat-card>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
 </div>
 
-<!-- 
-<div *ngFor="let node1 of node1List;">
+<!-- ตารางงงง -->
+<div class="mt-4">
+    <table mat-table matSort  [dataSource]="dataSource" class=" w-100 table-striped table-hover ">
+        <!-- mat-elevation-z2 ทำให้เงาของ table เบาลง -->
+        <ng-container matColumnDef="id">
+            <th  mat-sort-header mat-header-cell *matHeaderCellDef class="text-uppercase "> id </th>
+            <td mat-cell *matCellDef="let data" class="text-truncate" > {{data.id}} </td>
+          </ng-container>
+    
+        <ng-container matColumnDef="V">
+          <th  mat-sort-header mat-header-cell *matHeaderCellDef class="text-uppercase "> Volt </th>
+          <td mat-cell *matCellDef="let data" class="text-truncate" > {{data.V}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="A">
+            <th  mat-sort-header mat-header-cell *matHeaderCellDef class="text-uppercase text-right"> Amp </th>
+            <td mat-cell *matCellDef="let data" class="text-right"> {{data.A}} </td>
+          </ng-container>
+    
+          <ng-container matColumnDef="S">
+            <th  mat-sort-header mat-header-cell *matHeaderCellDef class="text-uppercase text-center"> Status </th>
+            <td mat-cell *matCellDef="let data" class="text-center"> {{data.S}} </td>
+          </ng-container>
+    
+ 
+    
+          
+    
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <!-- ชุดข้อมูล -->
+        </table>
+    <!-- วางไว้นอก Table -->
+      
+</div>
+
+
+
+<!-- <div *ngFor="let node1 of node1List;">
     <div *ngIf="node1.S == 'OK' " [ngStyle]="{'background-color': 'green'}">
       Volt : {{ node1.V }}, Amp : {{ node1.A }}, Stasus : {{ node1.S }}
     </div>
@@ -179,4 +259,4 @@
       Volt : {{ node1.V }}, Amp : {{ node1.A }}, Stasus : {{ node1.S }}
     </div>
 
-</div> -->
+</div>  -->

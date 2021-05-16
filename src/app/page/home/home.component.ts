@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   public status_good : number 
   public status_bad : number 
   public status_down : number 
+  public status_broken : number 
 
 
   items  : Observable <any>
@@ -27,30 +28,13 @@ export class HomeComponent implements OnInit {
 
   constructor(private  db: AngularFireDatabase) { 
     this.getDataFromRealtime();
+    
   }
 
   ngOnInit(): void {
   }
 
-  async getStarted(){
-    var node1: Node1[];
-    await this.getUserFreomRealtimDB().then(value => {
-      node1 = value as Node1[];
-    })
-  this.node1List = node1;
-   console.log(this.node1List)
-   //this._id = this._usersList[this._usersList.length -1].id+1
-
-  }
-
-  getUserFreomRealtimDB(){
-    return new Promise((resove,reject)=>{
-      this.db.list('node1').valueChanges().subscribe(value => {
-        resove(value);
-      });
-    });
-  }
-
+ 
   getDataFromRealtime(){
     this.db.list('node1').snapshotChanges().forEach(datasSnapshot=>{
       this.node1List = [];
@@ -61,7 +45,7 @@ export class HomeComponent implements OnInit {
       //this.id = this.node1List[this.node1List.length].id + 1
       console.log(this.node1List)
       const result_ok = this.node1List.filter( data =>{
-        return data.S == "OK"
+        return data.S == "OK" 
       })
 
       const result_bad = this.node1List.filter( data =>{
@@ -69,22 +53,21 @@ export class HomeComponent implements OnInit {
       })
 
       const result_down = this.node1List.filter( data =>{
-        return data.S == "DOWN"
+        return data.S == "Down"
       })      
+
+      const result_broken = this.node1List.filter( data =>{
+        return data.A == "0.00"
+      })   
+
       this.status_good = result_ok.length;
       this.status_bad = result_bad.length;
       this.status_down = result_down.length; 
+      this.status_broken = result_broken.length;
       
       
     })
   }
-
-  checkGoodStatus(){
- 
-  }
-
-  
-
 }
 
 class Node1{

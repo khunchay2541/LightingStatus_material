@@ -21,8 +21,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './page/home/home.component';
 import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 
 import { LottieAnimationViewModule } from 'ng-lottie';
+import { DasboardhUpdateComponent } from './page/dasboardh-update/dasboardh-update.component';
+
+import {FormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -31,8 +35,10 @@ import { LottieAnimationViewModule } from 'ng-lottie';
     SideNavComponent,
     HomeComponent,
     DashbordComponent,
+    DasboardhUpdateComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -47,6 +53,7 @@ import { LottieAnimationViewModule } from 'ng-lottie';
     MatSidenavModule,
     MatListModule,
     MatCardModule,
+    MatTableModule,
     LottieAnimationViewModule.forRoot()
   ],
   providers: [],

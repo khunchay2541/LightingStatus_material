@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/database';
 import 'firebase/database'
 import {Observable} from 'rxjs'
+import { MatTableDataSource } from '@angular/material/table';
+
 
 @Component({
   selector: 'app-dashbord',
@@ -10,8 +12,11 @@ import {Observable} from 'rxjs'
 })
 export class DashbordComponent implements OnInit {
 
- 
+  displayedColumns = ['id', 'V', 'A','S']
+  public dataSource = new MatTableDataSource<any>();
 
+
+  //public dataSource  : any 
   items  : Observable <any>
 
   public node1List: Node1[];
@@ -21,13 +26,18 @@ export class DashbordComponent implements OnInit {
   public S: string;
   public V : string;
 
+ 
+
   constructor(private  db: AngularFireDatabase) { 
     this.getDataFromRealtime()
-  }
+    
+ }
 
   ngOnInit(): void {
+     //this.feedDataTable();
   }
 
+  //---------- ไม่ได้ ใช้
   async getStarted(){
     var node1: Node1[];
     await this.getUserFreomRealtimDB().then(value => {
@@ -46,19 +56,23 @@ export class DashbordComponent implements OnInit {
       });
     });
   }
+  //--------- 
+
 
   getDataFromRealtime(){
     this.db.list('node1').snapshotChanges().forEach(datasSnapshot=>{
       this.node1List = [];
       datasSnapshot.forEach(dataSnapshot=>{
         let data = dataSnapshot.payload.toJSON();
-
         this.node1List.push(data as Node1)
       })
+
+      const data = this.node1List //ได้ array ข้อง Database
+      this.dataSource.data  = data
     })
   }
-
 }
+
 
 class Node1{
   id : number;
