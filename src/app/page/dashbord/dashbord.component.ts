@@ -37,7 +37,7 @@ export class DashbordComponent implements OnInit {
      //this.feedDataTable();
   }
 
-  //---------- ไม่ได้ ใช้
+  //---------- ไม่ได้ ใช้------------------------------
   async getStarted(){
     var node1: Node1[];
     await this.getUserFreomRealtimDB().then(value => {
@@ -56,7 +56,7 @@ export class DashbordComponent implements OnInit {
       });
     });
   }
-  //--------- 
+  //--------- -----------------------------------
 
 
   getDataFromRealtime(){
@@ -65,8 +65,8 @@ export class DashbordComponent implements OnInit {
       datasSnapshot.forEach(dataSnapshot=>{
         let data = dataSnapshot.payload.toJSON();
         this.node1List.push(data as Node1)
-      })
-
+        
+    })
       const data = this.node1List //ได้ array ข้อง Database
       this.dataSource.data  = data
     })
