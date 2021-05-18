@@ -1,18 +1,16 @@
-<div class="mt-2">
+<!-- <div class="mt-2">
     <h1 class="text-white"> ภาพรวมของระบบ </h1>
     <hr class="border">
-    
-</div>
+</div> -->
   
-
-  <div class="d-flex flex-row align-items-center justify-content-center mt-4 container" >
-
+<!-- ---------------------------------  แบบเดิม---------------------------------------------------------------------------- -->
+  <!-- <div class="d-flex flex-row align-items-center justify-content-center mt-4 container" >
 
     <div class="col-md-3 mt-4">
         <mat-card class="d-flex align-items-center">
           <img class="icon mr-3"  src="https://image.flaticon.com/icons/svg/3176/3176369.svg" alt="">
           <div class="d-flex flex-column">
-            <div class="h2 mb-0">Good</div>
+            <div class="h2 mb-0">ปกติ</div>
             <div class="h4 mb-0" >{{status_good}}</div>
           </div>
         </mat-card>
@@ -21,9 +19,9 @@
     
       <div class="col-md-3  mt-4">
         <mat-card class="d-flex align-items-center">
-          <img class="icon mr-3" src="https://image.flaticon.com/icons/svg/3176/3176276.svg" alt="">
+          <img class="icon mr-3" src="https://image.flaticon.com/icons/svg/25/25805.svg" alt="">
           <div class="d-flex flex-column">
-            <div class="h2 mb-0">Bad</div>
+            <div class="h2 mb-0">เสียหาย</div>
             <div class="h4 mb-0">{{status_bad}}</div>
           </div>
         </mat-card>
@@ -34,7 +32,7 @@
         <mat-card class="d-flex align-items-center">
           <img class="icon mr-3" src="https://image.flaticon.com/icons/svg/2372/2372041.svg" alt="">
           <div class="d-flex flex-column">
-            <div class="h2 mb-0">Broken</div>
+            <div class="h2 mb-0">ชำรุด</div>
             <div class="h4 mb-0">{{status_broken}}</div>
           </div>
         </mat-card>
@@ -44,31 +42,42 @@
         <mat-card class="d-flex align-items-center">
           <img class="icon mr-3" src="https://image.flaticon.com/icons/svg/869/869045.svg" alt="">
           <div class="d-flex flex-column">
-            <div class="h2 mb-0">Down</div>
+            <div class="h4 mb-0">ไม่ได้รับข้อมูล</div>
             <div class="h4 mb-0">{{status_down}}</div>
           </div>
         </mat-card>
       </div>
-  </div>
+  </div> -->
+
   
-  <div class="mt-5">
+<!-- ------------------------------------------------------------------------------------------------------------- -->
+
+  <div class="">
     <h1 class="text-white"> คำแนะนำการใช้งาน </h1>
     <hr class="border">
  </div>
   
+<!-- -------------------------------  แบบใหม่ ------------------------------------------------------------------------------ -->
  <div class="wrapper">
+     <!-- card1 -->
     <div class="card">
         <input type="checkbox" id="card1" class="more" aria-hidden="true">
         <div class="content">
+
             <div class="front" style="background-image: url('https://images.unsplash.com/photo-1529408686214-b48b8532f72c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=986e2dee5c1b488d877ad7ba1afaf2ec&auto=format&fit=crop&w=1350&q=80')">
                 <div class="inner">
-                    <h2>Cozy apartment</h2>
+                    <h2>Status</h2>
                     <div class="rating">
-                        <i class="fas fa-star">ำได-ด</i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
+                        <div class="">
+                            <mat-card class="d-flex align-items-center">
+                              <img class="icon mr-3"  src="https://image.flaticon.com/icons/svg/3176/3176369.svg" alt="">
+                              <div class="d-flex flex-column">
+                                <div class="h2 mb-0">ปกติ</div>
+                                <div class="h4 mb-0" >{{status_good}}</div>
+                              </div>
+                            </mat-card>
+                        </div>
+                      
                     </div>
                     <label for="card1" class="button" aria-hidden="true">
                         Details
@@ -78,50 +87,134 @@
             
             <div class="back">
                 <div class="inner">
-                    <div class="info">
-                        <span>5</span>
-                        <div class="icon">
-                            <i class="fas fa-users"></i>
-                            <span>people</span>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <span>4</span>
-                        <div class="icon">
-                            <i class="fas fa-door-open"></i>
-                            <span>rooms</span>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <span>3</span>
-                        <div class="icon">
-                            <i class="fas fa-bed"></i>
-                            <span>beds</span>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <span>1</span>
-                        <div class="icon">
-                            <i class="fas fa-bath"></i>
-                            <span>bath</span>
-                        </div>
-                    </div>
                     <div class="description">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, accusamus.</p>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptates earum nostrum ipsam
-                            ullam, reiciendis nam consectetur? Doloribus voluptate architecto possimus perferendis
-                            tenetur nemo amet temporibus, enim soluta nam, debitis.</p>
+                        <h2>เป็นสถานะที่ระบบปกติ รับค่า V (แรงดันไฟฟ้า), A (กระแสไฟฟ้า) จากสถานีลูกที่ติดตั้งอยู่่ที่เสาไฟฟ้าได้</h2>
                     </div>
-                    <div class="location">Warsaw, Poland</div>
-                    <div class="price">38€ / day</div>
                     <label for="card1" class="button return" aria-hidden="true">
                         <i class="fas fa-arrow-left"></i>
                     </label>
                 </div>
             </div>
+
         </div>
     </div>
-   
+    <!-- card 2 -->
+    <div class="card">
+        <input type="checkbox" id="card2" class="more" aria-hidden="true">
+        <div class="content">
+
+            <div class="front" style="background-image: url('https://images.unsplash.com/photo-1529408686214-b48b8532f72c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=986e2dee5c1b488d877ad7ba1afaf2ec&auto=format&fit=crop&w=1350&q=80')">
+                <div class="inner">
+                    <h2>Status</h2>
+                    <div class="rating">
+                        <div class="">
+                            <mat-card class="d-flex align-items-center">
+                              <img class="icon mr-3"  src="https://image.flaticon.com/icons/svg/25/25805.svg" alt="">
+                              <div class="d-flex flex-column">
+                                <div class="h2 mb-0">เสียหาย</div>
+                                <div class="h4 mb-0" >{{status_bad}}</div>
+                              </div>
+                            </mat-card>
+                        </div>
+                      
+                    </div>
+                    <label for="card2" class="button" aria-hidden="true">
+                        Details
+                    </label>
+                </div>
+            </div>
+            
+            <div class="back">
+                <div class="inner">
+                    <div class="description">
+                        <h2>เป็นสถานะที่สถานีลูกไม่สามารถวัดค่า V(แรงดันไฟฟ้า), A(กระแสไฟฟ้า) ได้ คาดว่าสายไฟเลี้ยง 220V เสียหาย</h2>
+                    </div>
+                    <label for="card2" class="button return" aria-hidden="true">
+                        <i class="fas fa-arrow-left"></i>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- card 3 -->
+    <div class="card">
+        <input type="checkbox" id="card3" class="more" aria-hidden="true">
+        <div class="content">
+
+            <div class="front" style="background-image: url('https://images.unsplash.com/photo-1529408686214-b48b8532f72c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=986e2dee5c1b488d877ad7ba1afaf2ec&auto=format&fit=crop&w=1350&q=80')">
+                <div class="inner">
+                    <h2>Status</h2>
+                    <div class="rating">
+                        <div class="">
+                            <mat-card class="d-flex align-items-center">
+                              <img class="icon mr-3"  src="https://image.flaticon.com/icons/svg/2372/2372041.svg" alt="">
+                              <div class="d-flex flex-column">
+                                <div class="h2 mb-0">ชำรุด</div>
+                                <div class="h4 mb-0" >{{status_broken}}</div>
+                              </div>
+                            </mat-card>
+                        </div>
+                      
+                    </div>
+                    <label for="card3" class="button" aria-hidden="true">
+                        Details
+                    </label>
+                </div>
+            </div>
+            
+            <div class="back">
+                <div class="inner">
+                    <div class="description">
+                        <h2>เป็นสถานะที่ไม่สามารถวัดค่า A (กระแสไฟฟ้า) จากสถานีลูกที่ติดตั้งอยู่่ที่เสาไฟฟ้าได้ คาดว่าหลอดไฟชำรุด</h2>
+                    </div>
+                    <label for="card3" class="button return" aria-hidden="true">
+                        <i class="fas fa-arrow-left"></i>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </div>
+     <!-- card 4 -->
+    <div class="card">
+        <input type="checkbox" id="card4" class="more" aria-hidden="true">
+        <div class="content">
+
+            <div class="front" style="background-image: url('https://images.unsplash.com/photo-1529408686214-b48b8532f72c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=986e2dee5c1b488d877ad7ba1afaf2ec&auto=format&fit=crop&w=1350&q=80')">
+                <div class="inner">
+                    <h2>Status</h2>
+                    <div class="rating">
+                        <div class="">
+                            <mat-card class="d-flex align-items-center">
+                              <img class="icon mr-3"  src="https://image.flaticon.com/icons/svg/803/803253.svg" alt="">
+                              <div class="d-flex flex-column">
+                                <div class="h2 mb-0">ไม่ได้รับข้อมูล</div>
+                                <div class="h4 mb-0" >{{status_down}}</div>
+                              </div>
+                            </mat-card>
+                        </div>
+                      
+                    </div>
+                    <label for="card4" class="button" aria-hidden="true">
+                        Details
+                    </label>
+                </div>
+            </div>
+            
+            <div class="back">
+                <div class="inner">
+                    <div class="description">
+                        <h2>เป็นสถานะที่สถานีหลักไม่ได้รับการตอบกลับจากสถานีลูก คาดว่าอุปกรณ์สถานีลูกเสียหายหรือไม่มีแหล่งจ่ายไฟ</h2>
+                    </div>
+                    <label for="card4" class="button return" aria-hidden="true">
+                        <i class="fas fa-arrow-left"></i>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 </div>
   

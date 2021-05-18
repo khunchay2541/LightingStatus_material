@@ -1,6 +1,170 @@
-<div *ngIf="apiLoaded | async">
-    <google-map [options]="options" (mapClick)="addMarker($event) ">
-        <map-marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition"
-            [options]="markerOptions"></map-marker>
-    </google-map>
-  </div>
+<div class="text-white">
+    <h1 >แผนที่แสดงตำแหน่งเสาไฟฟ้า</h1>
+</div>
+<hr class="border">
+<div class="d-flex flex-row mt-4 align-items-center justify-content-between">
+
+    <div class="mt-4 text-white">
+                    
+            <div *ngIf="mapOverview == true">
+
+                <h1>ภาพรวม(เสาทั้งหมด)</h1>
+                <div class="mt-4"></div>
+                <div *ngIf="apiLoaded | async">
+                    <google-map [options]="options" (mapClick)="addMarker($event) ">
+                        <map-marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition"
+                            [options]="markerOptions"></map-marker>
+                    </google-map>
+                
+                    
+                </div> 
+                
+            </div>
+
+            <div *ngIf="searchPole == 0">
+                <h1>เสาที่ 1</h1>
+                <div class="mt-4"></div>
+                <div *ngIf="apiLoaded | async">
+                    <google-map [options]="options" (mapClick)="addMarker($event) ">
+                        <map-marker  [position]="markerPositions[0]"
+                            [options]="markerOptions"></map-marker>
+                    </google-map>
+                        
+                </div>
+            </div>
+
+            <div *ngIf="searchPole == 1">
+                <h1>เสาที่ 2</h1>
+                <div class="mt-4"></div>
+                <div *ngIf="apiLoaded | async">
+                    <google-map [options]="options" (mapClick)="addMarker($event) ">
+                        <map-marker  [position]="markerPositions[1]"
+                            [options]="markerOptions"></map-marker>
+                    </google-map>
+                        
+                </div>
+            </div>
+
+            <div *ngIf="searchPole == 2">
+                <h1>เสาที่ 3</h1>
+                <div class="mt-4"></div>
+                <div *ngIf="apiLoaded | async">
+                    <google-map [options]="options" (mapClick)="addMarker($event) ">
+                        <map-marker  [position]="markerPositions[2]"
+                            [options]="markerOptions"></map-marker>
+                    </google-map>
+                        
+                </div>
+            </div>
+
+            <div *ngIf="searchPole == 3">
+                <h1>เสาที่ 4</h1>
+                <div class="mt-4"></div>
+                <div *ngIf="apiLoaded | async">
+                    <google-map [options]="options" (mapClick)="addMarker($event) ">
+                        <map-marker  [position]="markerPositions[3]"
+                            [options]="markerOptions"></map-marker>
+                    </google-map>
+                        
+                </div>
+            </div>
+
+            <div *ngIf="searchPole == 4">
+                <h1>เสาที่ 5</h1>
+                <div class="mt-4"></div>
+                <div *ngIf="apiLoaded | async">
+                    <google-map [options]="options" (mapClick)="addMarker($event) ">
+                        <map-marker  [position]="markerPositions[4]"
+                            [options]="markerOptions"></map-marker>
+                    </google-map>
+                        
+                </div>
+            </div>
+
+            <div *ngIf="searchPole == 5">
+                <h1>เสาที่ 6</h1>
+                <div class="mt-4"></div>
+                <div *ngIf="apiLoaded | async">
+                    <google-map [options]="options" (mapClick)="addMarker($event) ">
+                        <map-marker  [position]="markerPositions[5]"
+                            [options]="markerOptions"></map-marker>
+                    </google-map>
+                        
+                </div>
+            </div>
+
+            <div *ngIf="searchPole == 6">
+                <h1>เสาที่ 7</h1>
+                <div class="mt-4"></div>
+                <div *ngIf="apiLoaded | async">
+                    <google-map [options]="options" (mapClick)="addMarker($event) ">
+                        <map-marker  [position]="markerPositions[6]"
+                            [options]="markerOptions"></map-marker>
+                    </google-map>
+                        
+                </div>
+            </div>
+
+            <div *ngIf="searchPole == 7">
+                <h1>เสาที่ 8</h1>
+                <div class="mt-4"></div>
+                <div *ngIf="apiLoaded | async">
+                    <google-map [options]="options" (mapClick)="addMarker($event) ">
+                        <map-marker  [position]="markerPositions[7]"
+                            [options]="markerOptions"></map-marker>
+                    </google-map>
+                        
+                </div>
+            </div>
+
+            <div *ngIf="searchPole == 8">
+                <h1>เสาที่ 9</h1>
+                <div class="mt-4"></div>
+                <div *ngIf="apiLoaded | async">
+                    <google-map [options]="options" (mapClick)="addMarker($event) ">
+                        <map-marker  [position]="markerPositions[8]"
+                            [options]="markerOptions"></map-marker>
+                    </google-map>
+                        
+                </div>
+            </div>
+
+            <div *ngIf="searchPole == 9">
+                <h1>เสาที่ 10</h1>
+                <div class="mt-4"></div>
+                <div *ngIf="apiLoaded | async">
+                    <google-map [options]="options" (mapClick)="addMarker($event) ">
+                        <map-marker  [position]="markerPositions[9]"
+                            [options]="markerOptions"></map-marker>
+                    </google-map>
+                        
+                </div>
+            </div>
+    </div>
+
+    <!-- --------------- แบ่ง แมป ปุ่ม -->
+    <div class="d-flex button_search">
+
+        <div class="d-flex flex-column text-white">
+            <mat-button-toggle class="mt-1" (click)="mapOverviewTrue()">ภาพรวม(ทั้งหมด)</mat-button-toggle>
+            <mat-button-toggle class="mt-1" (click)="searchPole1()">เสาที่ 1</mat-button-toggle>
+            <mat-button-toggle class="mt-1" (click)="searchPole2()">เสาที่ 2</mat-button-toggle>
+            <mat-button-toggle class="mt-1" (click)="searchPole3()">เสาที่ 3</mat-button-toggle>
+            <mat-button-toggle class="mt-1" (click)="searchPole4()">เสาที่ 4</mat-button-toggle>
+            <mat-button-toggle class="mt-1" (click)="searchPole5()">เสาที่ 5</mat-button-toggle>
+            <mat-button-toggle class="mt-1" (click)="searchPole6()">เสาที่ 6</mat-button-toggle>
+            <mat-button-toggle class="mt-1" (click)="searchPole7()">เสาที่ 7</mat-button-toggle>
+            <mat-button-toggle class="mt-1" (click)="searchPole8()">เสาที่ 8</mat-button-toggle>
+            <mat-button-toggle class="mt-1" (click)="searchPole9()">เสาที่ 9</mat-button-toggle>
+            <mat-button-toggle class="mt-1" (click)="searchPole10()">เสาที่ 10</mat-button-toggle>
+        </div>
+      
+       </div>
+
+</div>
+
+
+
+
+
+

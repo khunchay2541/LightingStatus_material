@@ -7,7 +7,7 @@ import { map, catchError } from 'rxjs/operators';
 import { AngularFireDatabase } from '@angular/fire/database';
 import 'firebase/database'
 
-
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-google-map',
@@ -22,6 +22,8 @@ export class GoogleMapComponent implements OnInit {
     public S: string;
     public V : string;
     public location : object;
+    public searchPole :number
+    public mapOverview = true 
   
     //-----------------map--------------
     apiLoaded: Observable<boolean>;
@@ -74,10 +76,73 @@ export class GoogleMapComponent implements OnInit {
           return this.addMarker(data.location)
       })
 
-      
-      
+      const len_Location = this.node1List.filter (data => {
+        return data.location
+    })
+    console.log(len_Location.length);
+    
     })
   }
+
+
+    searchPole1(){
+        this.searchPole = 0
+        this.mapOverview = false
+    }
+
+    searchPole2(){
+        this.searchPole = 1
+        this.mapOverview = false
+    }
+
+    searchPole3(){
+        this.searchPole = 2
+        this.mapOverview = false
+    }
+
+    searchPole4(){
+        this.searchPole = 3
+        this.mapOverview = false
+    }
+
+    searchPole5(){
+        this.searchPole = 4
+        this.mapOverview = false
+    }
+
+    searchPole6(){
+        this.searchPole = 5
+        this.mapOverview = false
+    }
+
+    searchPole7(){
+        this.searchPole = 6
+        this.mapOverview = false
+    }
+
+    searchPole8(){
+        this.searchPole = 7
+        this.mapOverview = false
+    }
+
+    searchPole9(){
+        this.searchPole = 8
+        this.mapOverview = false
+    }
+
+    searchPole10(){
+        this.searchPole = 9
+        this.mapOverview = false
+    }
+
+    mapOverviewTrue(){
+        this.mapOverview = true
+        this.searchPole = null
+    }
+
+    fontStyleControl = new FormControl();
+    fontStyle?: string;
+    
 
 }
 class Node1{

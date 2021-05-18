@@ -22,6 +22,7 @@ import { MatListModule } from '@angular/material/list';
 import { HomeComponent } from './page/home/home.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 import { LottieAnimationViewModule } from 'ng-lottie';
 import { DasboardhUpdateComponent } from './page/dasboardh-update/dasboardh-update.component';
@@ -61,6 +62,7 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     MatListModule,
     MatCardModule,
     MatTableModule,
+    MatButtonToggleModule,
     LottieAnimationViewModule.forRoot(),
     //google map
     CommonModule,
