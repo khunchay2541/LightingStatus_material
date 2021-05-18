@@ -30,11 +30,23 @@
         </div>
      </div> -->
      <div class="form-group">
+        <div class="col-lg-6">
+          <label class="text-white">ละติจูด</label>
+          <input class="form-control" type="number" [(ngModel)]='lat' />
+        </div>
+     </div>
+     <div class="form-group">
+        <div class="col-lg-6">
+          <label class="text-white">ลองติจูด</label>
+          <input class="form-control" type="number"  [(ngModel)]='lng' />
+        </div>
+     </div>
+     <div class="form-group">
       <div class="col-lg-6">
-        <label class="text-white">บันทึก(สถานที่)</label>
+        <label class="text-white">บันทึก</label>
         <input class="form-control" [(ngModel)]='note' /><br/>
         <!-- <button *ngIf = 'isEdit == false' class= "btn btn-success" (click)='addUser()'>Add</button> -->
-        <button *ngIf = 'isEdit == true' class= "btn btn-info" (click)='updateUser()' >แก้ไข</button>
+        <button  class= "btn btn-info" (click)='updateUser()' >แก้ไข</button>
         <!-- <button *ngIf = 'isEdit == true' class= "btn btn-danger" (click)='deleteUser()'>Delete</button> -->
       </div>
    </div>
@@ -49,7 +61,9 @@
               <th class="text-white bg-dark">แรงดัน</th>
               <th class="text-white bg-dark">กระแส</th>
               <th class="text-white bg-dark">สถานะ</th>
-              <th class="text-white bg-dark">บันทึก(สถานที่)</th>
+              <th class="text-white bg-dark">บันทึก</th>
+              <th class="text-white bg-dark">ละติจูด</th>
+              <th class="text-white bg-dark">ลองติจูด</th>
              
             </tr>
           </thead>
@@ -61,6 +75,8 @@
               <td class="text-white">{{node1.A}}</td>
               <td class="text-white">{{node1.S}}</td>
               <td class="text-white">{{node1.note}}</td>
+              <td class="text-white">{{node1.location.lat}}</td>
+              <td class="text-white">{{node1.location.lng}}</td>
               
             </tr>
           </tbody>

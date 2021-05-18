@@ -29,6 +29,9 @@ export class DasboardhUpdateComponent implements OnInit {
     public S: string;
     public V : string;
     public note : string;
+    public location : any;
+    public lat : number
+    public lng : number
   
   
     constructor(private  db: AngularFireDatabase) { 
@@ -74,26 +77,15 @@ export class DasboardhUpdateComponent implements OnInit {
             });
         }
         //***********เพิ่ม ข้อมูล************************** */
-        async addUser(){
-            var data = {
-            id : this.id,
-            V : this.V,
-            A: this.A,
-            S: this.S,
-            note: this.note
-            }
 
-            await this.db.object('node1/'+(String(this.id-1))).set(data);
-            await this.getStarted();
-
-            this.clearFireld();
-        }
 
         clearFireld(){
             this.V = '',
             this.A = '';   
             this.S = '';  
             this.note = ''; 
+            this.lat = null;
+            this.lng = null;
         }
         //*********************************************** */
         getUserFromTbl(id:number){
@@ -105,18 +97,23 @@ export class DasboardhUpdateComponent implements OnInit {
             this.A = node1.A;
             this.S = node1.S;
             this.note = node1.note;
+            this.lat = node1.location.lat;
+            this.lng = node1.location.lng;
             
 
             this.isEdit = true;
         }
         //********** อัพเดท ********************/
         async updateUser(){
+            
+            
             var data = {
             id : this.id ,
             V : this.V,
             A: this.A,
             S : this.S,
-            note : this.note
+            note : this.note,
+            location:  {lat: this.lat , lng: this.lng }
             }
 
             await this.db.object('node1/'+(String(this.id))).set(data);
@@ -124,15 +121,6 @@ export class DasboardhUpdateComponent implements OnInit {
 
             this.clearFireld();
 
-            this.isEdit = false;
-        }
-        //**Delete User */
-        async deleteUser(){
-
-            await this.db.object('users/'+ String(this.id-1)).remove();
-            this.clearFireld();
-            await this.getStarted();
-            
             this.isEdit = false;
         }
 
@@ -146,5 +134,8 @@ export class DasboardhUpdateComponent implements OnInit {
     S: string;
     V : string;
     note : string;
+    location : any;
+    lat: number;
+    lng:number
   }
   

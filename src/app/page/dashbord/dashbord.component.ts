@@ -79,5 +79,6 @@ class Node1{
   A : string;
   S: string;
   V : string;
+ 
 }
 

@@ -26,7 +26,13 @@ import { MatTableModule } from '@angular/material/table';
 import { LottieAnimationViewModule } from 'ng-lottie';
 import { DasboardhUpdateComponent } from './page/dasboardh-update/dasboardh-update.component';
 
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
+import { GoogleMapComponent } from './page/google-map/google-map.component'
+
+//google map
+import { GoogleMapsModule } from '@angular/google-maps';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,6 +42,7 @@ import {FormsModule} from '@angular/forms'
     HomeComponent,
     DashbordComponent,
     DasboardhUpdateComponent,
+    GoogleMapComponent,
   ],
   imports: [
     FormsModule,
@@ -54,7 +61,12 @@ import {FormsModule} from '@angular/forms'
     MatListModule,
     MatCardModule,
     MatTableModule,
-    LottieAnimationViewModule.forRoot()
+    LottieAnimationViewModule.forRoot(),
+    //google map
+    CommonModule,
+    GoogleMapsModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
