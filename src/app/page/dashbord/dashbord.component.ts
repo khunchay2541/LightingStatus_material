@@ -4,6 +4,10 @@ import 'firebase/database'
 import {Observable} from 'rxjs'
 import { MatTableDataSource } from '@angular/material/table';
 
+import { HttpClient } from '@angular/common/http';
+import { of } from 'rxjs/internal/observable/of';
+import { map, catchError } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-dashbord',
@@ -25,10 +29,32 @@ export class DashbordComponent implements OnInit {
   public A : string;
   public S: string;
   public V : string;
+  public location : object;
 
+ //----------- map --------------------
+  apiLoaded: Observable<boolean>;
+
+  public latLngCenter : { lat: 13.732068853211791, lng: 100.77009050181167 }
+
+  options: google.maps.MapOptions = {
+    center: { lat: 13.730136207394786, lng: 100.75278758058228 },
+    zoom: 16
+  };
+  
+  markerOptions: google.maps.MarkerOptions = { draggable: true };
+  markerPositions: google.maps.LatLngLiteral[] =[]
  
+  addMarker(latLng) {
+    this.markerPositions.push(latLng);
+  }
 
-  constructor(private  db: AngularFireDatabase) { 
+  constructor(private  db: AngularFireDatabase, httpClient: HttpClient) { 
+
+    this.apiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key=AIzaSyCFeGNZiWmNXr6ULYUAm_63c-R5SVG6zCI', 'callback')
+    .pipe(
+      map(() => true),
+      catchError(() => of(false)),
+    );
     this.getDataFromRealtime()
     
  }
@@ -67,9 +93,19 @@ export class DashbordComponent implements OnInit {
         this.node1List.push(data as Node1)
         
     })
-      const data = this.node1List //ได้ array ข้อง Database
+    const data = this.node1List //ได้ array ข้อง Database
       this.dataSource.data  = data
+
+    const centerMap = this.node1List.find(data=>{
+        return data.location
     })
+    this.addMarker(centerMap.location)
+    console.log(centerMap.location)
+
+    })
+
+ 
+        
   }
 }
 
@@ -79,6 +115,7 @@ class Node1{
   A : string;
   S: string;
   V : string;
+  location : object
  
 }
 

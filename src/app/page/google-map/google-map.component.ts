@@ -76,10 +76,11 @@ export class GoogleMapComponent implements OnInit {
           return this.addMarker(data.location)
       })
 
-      const len_Location = this.node1List.filter (data => {
+      const len_Location = this.node1List.find (data => {
         return data.location
-    })
-    console.log(len_Location.length);
+     })
+     
+    console.log(len_Location);
     
     })
   }
